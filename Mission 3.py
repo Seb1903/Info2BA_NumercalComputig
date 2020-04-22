@@ -5,8 +5,8 @@ import timeit
 import random
 
 
-a = [[random.randint(1,10) for x in range(int(3))] for y in range(int(3))]
-b = [[random.randint(1,10) for x in range(int(3))] for y in range(int(3))]
+'''a = [[random.randint(1,10) for x in range(int(3))] for y in range(int(3))]
+b = [[random.randint(1,10) for x in range(int(3))] for y in range(int(3))]'''
 
 # Explicit multiplication by manipulating Python lists with loops
 def py_multiply(a, b):
@@ -20,10 +20,12 @@ def py_multiply(a, b):
 def np_multiply(a, b):
     np.dot(a,b)         #essayer de créer des objets matrices pour comparer avec la méthode dot
 
-def result1(a,b) : 
+def result1(x) : 
     REPEATS = 1000
+    a = [[random.randint(1,10) for x in range(int(x))] for y in range(int(x))]
+    b = [[random.randint(1,10) for x in range(int(x))] for y in range(int(x))]
     # Measure execution time of py_multiply
-    t = timeit.Timer('py_multiply(a, b)', '''from __main__ import py_multiply''')
+    t = timeit.Timer(f'py_multiply({a}, {b})', '''from __main__ import py_multiply''')
     result = t.timeit(REPEATS) / REPEATS * 1000
     print(result, 'ms')
     return result 
@@ -32,21 +34,17 @@ def result1(a,b) :
 def result2() : 
     REPEATS = 1000
     # Measure execution time of np_multiply
-    t = timeit.Timer('np_multiply(p, p)', '''import numpy as np
-    from __main__ import np_multiply
-    p = np.matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])''')
+    t = timeit.Timer(f'np_multiply({a}, {b})', '''import numpy as np
+    from __main__ import np_multiply''')
     result = t.timeit(REPEATS) / REPEATS * 1000
     print(result, 'ms')
     return result 
 
-def plot() : 
-    x = np.linspace(1,20, 1)
-    a = [[random.randint(1,10) for x in range(int(x))] for y in range(int(x))]
-    b = [[random.randint(1,10) for x in range(int(x))] for y in range(int(x))]
+#def plot() : 
+x = np.linspace(0,100, 5)
+y = result1(x)
 
-    y = result1()
+plt.plot (x, y)
+plt.show ()
 
-    plt.plot (x, y)
-    plt.show ()
-
-result1(a,b)
+#plot()
