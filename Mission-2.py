@@ -32,7 +32,7 @@ if opération == 'acheter' :
             min = float(elem) 
     print(min)
 
-elif opération == 'verif' : 
+elif opération == 'verif' :  # Permet, en indicant les prix payés dans chaque magasin de retrouver quelle quantité d'objets on a acheté. Ici servira de vérification
     #Note = input(' Payé ? ')
     Maga1 = input('Payé  Magasin 1 ? ')
     Maga2 = input('Payé  Magasin 2 ? ')
