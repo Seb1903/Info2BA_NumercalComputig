@@ -25,26 +25,39 @@ def result1(x) :
     a = [[random.randint(1,10) for x in range(int(x))] for y in range(int(x))]
     b = [[random.randint(1,10) for x in range(int(x))] for y in range(int(x))]
     # Measure execution time of py_multiply
-    t = timeit.Timer(f'py_multiply({a}, {b})', '''from __main__ import py_multiply''')
+    t = timeit.Timer(f'py_multiply({a}, {b})', '''from __main__ import py_multiply''')   #j'ai du modifier la fonction car j'avais des unexpected indent sinon
     result = t.timeit(REPEATS) / REPEATS * 1000
     print(result, 'ms')
     return result 
 
 
-def result2() : 
+def result2(x) : 
     REPEATS = 1000
     # Measure execution time of np_multiply
-    t = timeit.Timer(f'np_multiply({a}, {b})', '''import numpy as np
-    from __main__ import np_multiply''')
+    a = [[random.randint(1,10) for x in range(int(x))] for y in range(int(x))]
+    b = [[random.randint(1,10) for x in range(int(x))] for y in range(int(x))]
+    t = timeit.Timer(f'np_multiply({a}, {b})', '''from __main__ import np_multiply''')
     result = t.timeit(REPEATS) / REPEATS * 1000
     print(result, 'ms')
     return result 
 
 #def plot() : 
-x = np.linspace(0,100, 5)
-y = result1(x)
+x = np.arange(1,20,1, dtype = int)
+y1= []
+for i in x :      #permet de prendre chaque valeur séparément, sinon y essayait l'array tout entier dans result1
+    print(i) 
+    y1.append(result1(i))            #permet de retenir chaque résultat sinon ne plottait que le premier 
 
-plt.plot (x, y)
+
+y2 = []
+for i in x :      #permet de prendre chaque valeur séparément, sinon y essayait l'array tout entier dans result1
+    print(i) 
+    y2.append(result2(i))  
+
+
+plt.plot(x, y2, linewidth =2.5 , label ='Array')
+plt.plot(x, y1,color = 'red',label ='Explicit')
+
 plt.show ()
 
 #plot()
