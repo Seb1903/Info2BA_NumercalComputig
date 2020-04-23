@@ -55,7 +55,7 @@ for i in x :      #permet de prendre chaque valeur séparément, sinon y essayai
     y2.append(result2(i))  
 
 
-plt.plot(x, y2, linewidth =2.5 , label ='Array')
+plt.plot(x, y2, label ='Array')
 plt.plot(x, y1,color = 'red',label ='Explicit')
 
 plt.show ()
