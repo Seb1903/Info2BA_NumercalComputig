@@ -26,10 +26,7 @@ if opération == 'acheter' :
         ])
     totaux = prix * choix 
     print(totaux)                       #1x4 et une 4x3, en résulte une 1x3 (chaque total pour chaque magasin)
-    min = 9999999
-    for elem in totaux : 
-        if elem < min :     # parcourir différemment peut être, avec une méthode propre aux matrices 
-            min = float(elem) 
+    print(np.min(totaux))
     print(min)
 
 elif opération == 'verif' :  # Permet, en indicant les prix payés dans chaque magasin de retrouver quelle quantité d'objets on a acheté. Ici servira de vérification

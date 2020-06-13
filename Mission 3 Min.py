@@ -31,7 +31,7 @@ def time_np(i) :
     return result 
 
 
-x = np.arange(1,20,1, dtype = int)
+x = np.arange(1,100,1, dtype = int)
 y1= []
 for i in x :      
     print(i) 

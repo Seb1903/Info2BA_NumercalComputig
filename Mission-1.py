@@ -1,25 +1,15 @@
 import scipy
 import numpy as np 
 
-exemple = np.array([[1,2,3],[1,2,3],[1,2,2,3,4,5,6,7,8,9]]),
-data = np.array ([[['hello'] , [2]] , [['world'] , [4]]])
+data3 = np.array([[['h','e','l','l','o'] , [2]] , [['w','o','r','l','d'] , [4]]])
 
-#hello = string(data[0,0,0])
-print(type(data[0,0]))
-conc = [[data[0,0,0]],[data[1,0,0]]]
-print(conc)
+helloconq = ""
+worldconq = ""
+for i in range(5): 
+   helloconq += data3[0,0][i]
+   worldconq += data3[1,0][i]
+concatenation = np.array([[helloconq],[worldconq]])
+print(concatenation)
 
-
-
-
-
-
-#  shape = (1,10)
-# donnee = np.ndarray(shape)
-
-#  a= 0
-#  b=0
-#  for i in range(10) : 
-#      donnee[a,b] = i
-#      b += 1
-#  print(donnee)
+concatenation2 = concatenation.reshape(1,2)
+print(concatenation2)

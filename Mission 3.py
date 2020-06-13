@@ -17,12 +17,12 @@ def py_multiply(a, b):
                 res[i][j] += a[i][k] * b[k][j] # résultat
 
 # Direct multiplication with the ndarray or matrix object
-def np_multiply(a, b):
+def np_multiply(a, b):      #produit scalaire
     np.dot(a,b)         #essayer de créer des objets matrices pour comparer avec la méthode dot
 
 def result1(x) : 
     REPEATS = 1000
-    a = [[random.randint(1,10) for x in range(int(x))] for y in range(int(x))]
+    a = [[random.randint(1,10) for x in range(int(x))] for y in range(int(x))]   #génère matrices carrées de pus en plus grandes, a et b sont toutes les 2 des matrices 
     b = [[random.randint(1,10) for x in range(int(x))] for y in range(int(x))]
     # Measure execution time of py_multiply
     t = timeit.Timer(f'py_multiply({a}, {b})', '''from __main__ import py_multiply''')   #j'ai du modifier la fonction car j'avais des unexpected indent sinon
